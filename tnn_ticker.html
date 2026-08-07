@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TNN Ticker</title>
+
+<style>
+
+html,body{
+margin:0;
+overflow:hidden;
+background:transparent;
+width:100%;
+height:100%;
+}
+
+body{
+display:flex;
+align-items:center;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+#ticker{
+
+display:inline-block;
+
+white-space:nowrap;
+
+font-size:34px;
+
+font-weight:900;
+
+color:white;
+
+text-shadow:
+2px 2px 5px #000,
+0 0 10px #000;
+
+padding-left:100%;
+
+animation:scroll 150s linear infinite;
+
+}
+
+@keyframes scroll{
+
+0%{
+transform:translateX(0%);
+}
+
+100%{
+transform:translateX(-100%);
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="ticker"></div>
+
+<script>
+
+const headlines=[
+
+"🚨 DISCLAIMER • Rubbish T. Rat is fictional. Terrible advice remains terrible advice.",
+
+"📰 BREAKING • Dumpster declared historical landmark after three consecutive rat elections.",
+
+"🐀 RAT FACT • Confidence increases by 83% when wearing a stained tank top.",
+
+"🗑 WEATHER • Mostly garbage with a chance of shopping carts.",
+
+"📺 TNN EXCLUSIVE • Scientists confirm free food tastes significantly better.",
+
+"🚔 CRIME WATCH • Shopping cart still missing. Suspect remains adorable.",
+
+"⚠ COMMUNITY NOTE • Please do not challenge raccoons to poker.",
+
+"💰 MARKET WATCH • Aluminum cans ▲12% • Pizza crust futures remain stable.",
+
+"❤️ HEALTH • Hydrate occasionally. Energy drinks are not water.",
+
+"🎙 LIVE • Broadcasting from somewhere beneath your local dumpster."
+
+];
+
+function shuffle(array){
+
+for(let i=array.length-1;i>0;i--){
+
+const j=Math.floor(Math.random()*(i+1));
+
+[array[i],array[j]]=[array[j],array[i]];
+
+}
+
+}
+
+function buildTicker(){
+
+shuffle(headlines);
+
+let text="";
+
+headlines.forEach(item=>{
+
+text+=item+" ✦ ";
+
+});
+
+document.getElementById("ticker").innerHTML=text.repeat(3);
+
+}
+
+buildTicker();
+
+</script>
+
+</body>
+</html>
